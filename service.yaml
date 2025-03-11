@@ -1,0 +1,14 @@
+---
+# Used to send traffic ... working as load balancer 
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-service
+  namespace: development
+spec:
+  selector:
+    app: pod-info
+  ports:
+    - port: 80
+      targetPort: 3000
+  type: LoadBalancer
